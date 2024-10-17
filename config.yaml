@@ -1,0 +1,22 @@
+manifest_file:
+  file_path: data/flight_manifest/flight-manifest_copy.csv
+doc_intelligence:
+  custom_models:
+    boarding_pass_1: 591e01b4-b8ce-4c87-a3f2-53da7a437a01
+    #boarding_pass_1: 6cdaeab0-a360-4f4f-9480-f50030143642
+video_indexer:
+  video_path: data/digital-video/avkash-boarding-pass.mp4
+face_api:
+  recognitionModel: recognition_03
+  returnFaceLandmarks: false
+  maxNumOfCandidatesReturned: 10
+  confidenceThreshold: 0.7
+custom_vision:
+  domain_type: ObjectDetection
+  domain_name: General (compact)
+  folder_path: 
+  platform: TensorFlow
+  flavor: TensorFlowLite
+app:
+  upload_folder: src/app/uploads
+
