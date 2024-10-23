@@ -5,27 +5,33 @@ import logging
 import yaml
 from dotenv import find_dotenv, load_dotenv
 from get_custom_text.analyze_custom_doc_main import main as analyze_custom
-from analyzeID_prebuilt import analyze_identity_documents as analyze_id
+from src.get_ID.analyzeID_prebuilt import analyze_identity_documents as analyze_id
 from get_faces.face_identification_main import get_video_insights as insights
 from get_faces.face_identification_main import build_person_model as personModel
 from get_faces.face_identification_main import indentify_faces as identify_faces
 # import step_4.lighter_detection
-from validation import validate_all, get_validation_messages
+from validation.validation import validate_all, get_validation_messages
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-# Load the config file
-with open('./config.yaml') as yaml_file:
-    config = yaml.safe_load(yaml_file)
-
 # Load environment variables
 load_dotenv(find_dotenv())
 
+# Get the config file path from the .env file
+config_path = os.getenv('CONFIG_PATH')
+
+# Load the config file
+if config_path and os.path.exists(config_path):
+    with open(config_path) as yaml_file:
+        config_yml = yaml.safe_load(yaml_file)
+else:
+    raise FileNotFoundError(f"Config file not found at the specified path: {config_path}")
+
 def load_manifest_file():
     try:
-        manifest_path = config['manifest_file']['file_path']
+        manifest_path = config_yml['manifest_file']['file_path']
         if not manifest_path:
             raise FileNotFoundError("Manifest file path is missing in the config.")
         manifest_df = pd.read_csv(manifest_path)
@@ -61,7 +67,7 @@ def get_id(id_file_path):
 
 def get_boarding_pass(boarding_pass_file_path):
     try:
-        model_id = config['doc_intelligence']['custom_models']['boarding_pass_1']
+        model_id = config_yml['doc_intelligence']['custom_models']['boarding_pass_1']
         training_folder_path = os.getenv('training_folder_path')
 
         if not boarding_pass_file_path:
@@ -122,7 +128,8 @@ def main(id_file_path, boarding_pass_file_path, video_file_path):
 
         # Verify faces
         logger.error("Identify faces")
-        face_results = identify_faces_from_video(video_file_path, id_file_path)
+        # face_results = identify_faces_from_video(video_file_path, id_file_path)
+        face_results = [{'faceId': '8344e744-601c-4f4e-905b-aaf21c3f16b0', 'candidates': [{'personId': 'eac60023-b565-449f-be9d-af25a2524185', 'confidence': 0.95612}]}]
 
         # Perform validation
         logger.error("Perform validation")
