@@ -7,11 +7,10 @@ from datetime import date
 from typing import Optional
 from dotenv import find_dotenv, load_dotenv
 from get_custom_text.analyze_custom_doc_main import main as analyze_custom
-from src.get_ID.analyzeID_prebuilt import analyze_identity_documents as analyze_id
+from get_ID.analyzeID_prebuilt import analyze_identity_documents as analyze_id
 from get_faces.face_identification_main import get_video_insights as insights
 from get_faces.face_identification_main import build_person_model as personModel
 from get_faces.face_identification_main import indentify_faces as identify_faces
-# import step_4.lighter_detection 
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")

@@ -7,7 +7,7 @@ from dotenv import dotenv_values, load_dotenv, find_dotenv
 from urllib.parse import urlparse
 from typing import Optional
 from azure.storage.blob import BlobServiceClient
-import src.utility.upload_files_to_blob as upload
+import utility.upload_files_to_blob as upload
 import get_faces.video_indexer_client as indexer
 import get_faces.face_api_client as faceAPI
 

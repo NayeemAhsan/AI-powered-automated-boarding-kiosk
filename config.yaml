@@ -1,5 +1,5 @@
 manifest_file:
-  file_path: data/flight_manifest/flight-manifest_copy.csv
+  file_path: /home/mnahsan21/Udacity/Azure/automated-boarding-kiosk/data/flight_manifest/flight-manifest_copy.csv
 doc_intelligence:
   custom_models:
     boarding_pass_1: 591e01b4-b8ce-4c87-a3f2-53da7a437a01
@@ -14,6 +14,10 @@ face_api:
 custom_vision:
   domain_type: ObjectDetection
   domain_name: General (compact)
+  project_id:
+  project_name:
+  iteration_id:
+  publish_iteration_name:
   folder_path: 
   platform: TensorFlow
   flavor: TensorFlowLite

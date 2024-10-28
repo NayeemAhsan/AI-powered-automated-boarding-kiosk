@@ -5,11 +5,10 @@ import logging
 import yaml
 from dotenv import find_dotenv, load_dotenv
 from get_custom_text.analyze_custom_doc_main import main as analyze_custom
-from src.get_ID.analyzeID_prebuilt import analyze_identity_documents as analyze_id
+from get_ID.analyzeID_prebuilt import analyze_identity_documents as analyze_id
 from get_faces.face_identification_main import get_video_insights as insights
 from get_faces.face_identification_main import build_person_model as personModel
 from get_faces.face_identification_main import indentify_faces as identify_faces
-# import step_4.lighter_detection
 from validation.validation import validate_all, get_validation_messages
 
 # Setup logging
@@ -128,8 +127,8 @@ def main(id_file_path, boarding_pass_file_path, video_file_path):
 
         # Verify faces
         logger.error("Identify faces")
-        # face_results = identify_faces_from_video(video_file_path, id_file_path)
-        face_results = [{'faceId': '8344e744-601c-4f4e-905b-aaf21c3f16b0', 'candidates': [{'personId': 'eac60023-b565-449f-be9d-af25a2524185', 'confidence': 0.95612}]}]
+        face_results = identify_faces_from_video(video_file_path, id_file_path)
+        # face_results = [{'faceId': '8344e744-601c-4f4e-905b-aaf21c3f16b0', 'candidates': [{'personId': 'eac60023-b565-449f-be9d-af25a2524185', 'confidence': 0.95612}]}]
 
         # Perform validation
         logger.error("Perform validation")
