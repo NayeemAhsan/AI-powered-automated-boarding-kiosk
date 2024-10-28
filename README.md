@@ -40,4 +40,6 @@ The kiosk provides the following functionalities for airline passengers:
 `python src/kiosk_main.py`
 3. Run the Web Application
 `python src/app/gradio/webapp.py`
+### Reference
+- https://medium.com/@mnahsan21/building-an-ai-powered-boarding-kiosk-using-azure-ai-services-0002a34487e7
 
