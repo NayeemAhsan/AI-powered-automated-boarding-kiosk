@@ -21,12 +21,12 @@ The kiosk provides the following functionalities for airline passengers:
     - Extract the passenger's name from the ID.
     - Validates the name against the manifest table.
 2. Boarding Pass Validation
-- Model Training: A custom model is trained to extract passenger information from boarding passes using Azure Document Intelligence.
-- Manifest Validation: Extracted information is validated against the manifest.
+    - Model Training: A custom model is trained to extract passenger information from boarding passes using Azure Document Intelligence.
+    - Manifest Validation: Extracted information is validated against the manifest.
 3. Luggage Validation
-- Prohibited Items Detection: A machine learning model is trained using Azure Custom Vision to identify prohibited items, such as lighters, from the baggage scan.
+    - Prohibited Items Detection: A machine learning model is trained using Azure Custom Vision to identify prohibited items, such as lighters, from the baggage scan.
 4. Final Boarding Message
-- Once all validations are completed, a final message indicating success or failure is displayed, assisting the passenger in boarding or directing them to seek help.
+    - Once all validations are completed, a final message indicating success or failure is displayed, assisting the passenger in boarding or directing them to seek help.
 ### Execution
 - Main Program: The kiosk_main.py file handles the entire validation process. It can be executed from src/kiosk_main.py.
 - Web Application: A Gradio-based web application for the kiosk can be run from src/app/webapp.py.
