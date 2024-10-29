@@ -1,11 +1,10 @@
 manifest_file:
-  file_path: /home/mnahsan21/Udacity/Azure/automated-boarding-kiosk/data/flight_manifest/flight-manifest_copy.csv
+  file_path: /data/flight_manifest/flight-manifest.csv
 doc_intelligence:
   custom_models:
     boarding_pass_1: 591e01b4-b8ce-4c87-a3f2-53da7a437a01
-    #boarding_pass_1: 6cdaeab0-a360-4f4f-9480-f50030143642
 video_indexer:
-  video_path: data/digital-video/avkash-boarding-pass.mp4
+  video_path: 
 face_api:
   recognitionModel: recognition_03
   returnFaceLandmarks: false
